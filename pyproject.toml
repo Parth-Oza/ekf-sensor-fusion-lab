@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ekf-sensor-fusion-lab"
+version = "0.1.0"
+description = "A compact, testable extended Kalman filter laboratory for 2D robot state estimation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Parth Oza"}]
+dependencies = ["numpy>=1.24"]
+keywords = ["robotics", "sensor-fusion", "ekf", "localization", "state-estimation"]
+
+[project.scripts]
+ekf-demo = "ekf_sensor_fusion.simulation:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
