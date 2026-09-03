@@ -73,3 +73,7 @@ docs/ARCHITECTURE.md                 Mathematical model and extension notes
 - Keep ROS2 and hardware adapters outside the mathematical core.
 
 See [Architecture](docs/ARCHITECTURE.md), [Contributing](CONTRIBUTING.md), and [Security](SECURITY.md).
+
+## Contact
+
+For professional opportunities and technical discussions: [ozaparthu055@gmail.com](mailto:ozaparthu055@gmail.com) · [Portfolio](https://parthoza.net) · [LinkedIn](https://www.linkedin.com/in/oza-parth)
