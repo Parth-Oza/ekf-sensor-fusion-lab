@@ -8,6 +8,12 @@ A compact, testable state-estimation laboratory for fusing noisy position and ve
 
 > All measurements and trajectories are synthetic. This independent portfolio project contains no employer code, maps, logs, sensor calibration, or operational data.
 
+## Technical walkthrough
+
+[![Watch the EKF sensor-fusion walkthrough](docs/media/ekf-cover.png)](docs/media/ekf-sensor-fusion-walkthrough.mp4)
+
+The four-minute English walkthrough explains the engineering problem, state and covariance models, prediction and correction equations, implementation choices, reproducible experiment, and extension path. See [Evidence](docs/EVIDENCE.md) for the exact verification record and limitations.
+
 ## Capabilities
 
 - Tracks the state vector `[x, y, vx, vy]` with a constant-velocity motion model.
@@ -72,7 +78,7 @@ docs/ARCHITECTURE.md                 Mathematical model and extension notes
 - Test numerical properties and invalid inputs.
 - Keep ROS2 and hardware adapters outside the mathematical core.
 
-See [Architecture](docs/ARCHITECTURE.md), [Contributing](CONTRIBUTING.md), and [Security](SECURITY.md).
+See [Architecture](docs/ARCHITECTURE.md), [Evidence](docs/EVIDENCE.md), [Contributing](CONTRIBUTING.md), and [Security](SECURITY.md).
 
 ## Contact
 

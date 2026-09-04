@@ -1,0 +1,61 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:12.000
+This project builds an explainable state estimator for a mobile robot by combining noisy position and velocity readings.
+
+00:00:12.000 --> 00:00:24.000
+Success means lower position error, deterministic behavior, valid covariance, and safe handling of invalid inputs.
+
+00:00:24.000 --> 00:00:36.000
+The toolchain uses Jupyter, Python, NumPy, unit tests, and a future ROS 2 integration boundary.
+
+00:00:36.000 --> 00:00:48.000
+The state contains planar position and velocity, while a four-by-four covariance matrix represents uncertainty.
+
+00:00:48.000 --> 00:01:00.000
+Prediction advances position using velocity and elapsed time, while process noise models imperfect motion.
+
+00:01:00.000 --> 00:01:12.000
+At 1.2 meters per second over 0.1 seconds, the predicted x position advances by 0.12 meters.
+
+00:01:12.000 --> 00:01:24.000
+The G matrix maps acceleration uncertainty into position and velocity uncertainty.
+
+00:01:24.000 --> 00:01:36.000
+Innovation measures the difference between measurement and prediction; the Kalman gain determines the correction weight.
+
+00:01:36.000 --> 00:01:48.000
+With predicted variance 0.80 and measurement variance 0.64, the gain is 0.5556.
+
+00:01:48.000 --> 00:02:00.000
+A 0.30-meter measurement and 0.12-meter prediction produce a corrected position of 0.22 meters.
+
+00:02:00.000 --> 00:02:12.000
+The implementation keeps the transition matrix and process-noise calculation visible for review.
+
+00:02:12.000 --> 00:02:24.000
+A linear solve, Joseph-form covariance update, and symmetry guard improve numerical stability.
+
+00:02:24.000 --> 00:02:36.000
+The deterministic experiment runs 120 steps with position at 10 hertz, velocity at 5 hertz, and seed 7.
+
+00:02:36.000 --> 00:02:48.000
+The 12-second simulation uses 0.80-meter position noise and 0.18-meter-per-second velocity noise.
+
+00:02:48.000 --> 00:03:00.000
+The filtered trajectory stays closer to truth than the raw position measurements.
+
+00:03:00.000 --> 00:03:12.000
+Position RMSE falls from 1.0101 to 0.2829, a measured improvement of 71.99 percent.
+
+00:03:12.000 --> 00:03:24.000
+Three deterministic tests verify correction behavior, covariance symmetry, and improvement over raw sensing.
+
+00:03:24.000 --> 00:03:36.000
+The next ROS 2 adapters will ingest timestamped sensor messages and publish pose with covariance.
+
+00:03:36.000 --> 00:03:48.000
+Future work covers delayed messages, outliers, frame errors, IMU bias, consistency, and real-time C++ benchmarking.
+
+00:03:48.000 --> 00:04:00.000
+The core demonstrates transparent mathematics, asynchronous fusion, numerical safeguards, and measurable improvement.
