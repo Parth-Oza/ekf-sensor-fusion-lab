@@ -20,6 +20,13 @@ class EKFTests(unittest.TestCase):
         filter_.update_velocity([1.0, 0.5], variance=0.2)
         np.testing.assert_allclose(filter_.covariance, filter_.covariance.T, atol=1e-12)
 
+    def test_acceleration_control_advances_position_and_velocity(self) -> None:
+        filter_ = ConstantVelocityEKF()
+
+        filter_.predict(1.0, acceleration=[2.0, -1.0])
+
+        np.testing.assert_allclose(filter_.state, [1.0, -0.5, 2.0, -1.0])
+
     def test_synthetic_fusion_beats_raw_position_measurement(self) -> None:
         result = run_simulation()
         self.assertLess(result["filtered_position_rmse"], result["raw_position_rmse"])

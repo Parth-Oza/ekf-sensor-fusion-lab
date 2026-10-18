@@ -27,7 +27,11 @@ The test suite checks that:
 
 - a position update moves the estimate toward the measurement;
 - covariance remains symmetric; and
-- the seeded fused estimate outperforms the raw position measurement.
+- the seeded fused estimate outperforms the raw position measurement;
+- an acceleration control input advances position and velocity correctly;
+- a real rosbag2 MCAP fixture containing standard IMU and odometry messages replays successfully;
+- trajectory CSV and metrics JSON exports have the expected records; and
+- a missing required topic is rejected with a clear diagnostic.
 
 Run:
 
@@ -37,4 +41,4 @@ python -m unittest discover -s tests -v
 
 ## Interpretation boundary
 
-This result validates one controlled synthetic scenario. It is not evidence of field performance, ROS 2 timing behavior, robustness to outliers, delayed measurements, calibration errors, or production deployment. Those questions belong in the planned ROS 2 localization reliability benchmark.
+This result validates controlled synthetic scenarios and the ROS 2 storage/serialization integration. It is not evidence of field performance, clock synchronization, frame correctness, IMU gravity compensation, robustness to outliers, delayed measurements, calibration errors, or production deployment. The replay residual uses odometry as its reference and must not be presented as independent ground-truth accuracy. Those questions belong in a hardware-backed localization reliability benchmark.
