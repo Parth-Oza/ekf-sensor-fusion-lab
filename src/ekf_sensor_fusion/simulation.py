@@ -9,7 +9,9 @@ import numpy as np
 from .ekf import ConstantVelocityEKF
 
 
-def run_simulation(steps: int = 120, dt: float = 0.1, seed: int = 7) -> dict[str, float | int]:
+def run_simulation(
+    steps: int = 120, dt: float = 0.1, seed: int = 7
+) -> dict[str, float | int]:
     if steps < 2:
         raise ValueError("steps must be at least 2")
     rng = np.random.default_rng(seed)

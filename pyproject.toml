@@ -10,11 +10,12 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Parth Oza"}]
-dependencies = ["numpy>=1.24"]
+dependencies = ["numpy>=1.24", "rosbags>=0.11,<0.12"]
 keywords = ["robotics", "sensor-fusion", "ekf", "localization", "state-estimation"]
 
 [project.scripts]
 ekf-demo = "ekf_sensor_fusion.simulation:main"
+ekf-bag-replay = "ekf_sensor_fusion.bag_replay:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
